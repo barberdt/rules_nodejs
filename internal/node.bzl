@@ -58,12 +58,12 @@ def _write_loader_script(ctx):
   )
 
 def _nodejs_binary_impl(ctx):
-    print "ctx"
-    print ctx
+    print("ctx")
+    print(str(ctx))
     node = ctx.file._node
     node_modules = ctx.files.node_modules
-    print "node_modules"
-    print node_modules
+    print("node_modules")
+    print(str(node_modules))
     sources = set()
     for d in ctx.attr.data:
       if hasattr(d, "node_sources"):
