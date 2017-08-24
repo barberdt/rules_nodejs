@@ -39,8 +39,6 @@ function resolveToModuleRoot(path) {
   var match;
   var lengthOfMatch = 0;
   var matchedEntry;
-  console.log('MODULE_ROOTS');
-  console.log(MODULE_ROOTS);
   for (var i = 0; i < MODULE_ROOTS.length; i++) {
     var m = MODULE_ROOTS[i];
     var p = path.replace(m.module_name, m.module_root);
@@ -73,12 +71,9 @@ module.constructor._resolveFilename =
       runfilesDir(), 'TEMPLATED_workspace_name', 'TEMPLATED_label_package',
       'node_modules', request),
   ];
-  console.log('request');
-  console.log(request);
-  console.log('runFilesDir()');
-  console.log(runfilesDir());
-  console.log('resolveLocations');
-  console.log(resolveLocations)
+  console.log('DAVIS LOG (request): ', request);
+  console.log('DAVIS LOG (runFilesDir()): ', runfilesDir());
+  console.log('DAVIS LOG (resolveLocations): ', resolveLocations);
   for (var location of resolveLocations) {
     try {
       return originalResolveFilename(location, parent);
@@ -108,8 +103,6 @@ if (require.main === module) {
   // NB: entry_point below is replaced during the build process.
   var mainScript = process.argv[1] = 'TEMPLATED_entry_point';
   try {
-    console.log('mainScript');
-    console.log(mainScript);
     module.constructor._load(mainScript, this, /*isMain=*/true);
   } catch (e) {
     console.error('failed to load main ', e.stack || e);
