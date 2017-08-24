@@ -61,7 +61,7 @@ def _nodejs_binary_impl(ctx):
     print("ctx")
     print(str(ctx))
     node = ctx.file._node
-    node_modules = ctx.files.node_modules
+    node_modules = ctx.attr.node_modules
     print("node_modules")
     print(str(node_modules))
     sources = set()
